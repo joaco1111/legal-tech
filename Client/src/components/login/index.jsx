@@ -8,9 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 // import { useDispatch } from "react-redux";
 // import { setAuth } from "../../redux/actions";
-import { ClickHandlerCrear, ClickHandlerRecordatorio, Loginf } from "../../handlers/login";
+import { Loginf } from "../../handlers/login";
 
-const Login = () => {
+const Login = ({ClickHandlerCrear, ClickHandlerRecordatorio}) => {
   const [userData, setUserData] = useState({
     cedula: "",
     password: "",
