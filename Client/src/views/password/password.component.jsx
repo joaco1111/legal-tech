@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './password.module.css';
+import './password.css';
 
 function Password() {
   return (
@@ -37,7 +37,7 @@ function Password() {
               type="button"
               name="volver"
               value="volver"
-              className="botones"
+              className="button"
             />
             </Link>
         </div>
