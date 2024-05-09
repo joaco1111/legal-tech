@@ -15,13 +15,10 @@ import Password from './views/password/password.component';
 import "./App.css";
 import { Routes, Route, useLocation} from "react-router-dom";
 
-
-
-
 function App() {
-
+  
     const location = useLocation();
-
+   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
     //Funcion para verificar datos de ingreso
 
@@ -34,6 +31,7 @@ function App() {
         </div>
       ) : undefined}
       <Routes>
+
         <Route path="/" element={<Landing/>}/>
         <Route path="/crearusuario" element={<CreateUser/>}/>
         <Route path="/recordatoriocontrasena" element={<Password/>}/>
@@ -47,6 +45,7 @@ function App() {
         <Route path='/home/payments' element={<Payments/>}/>
         <Route path='/home/consultation' element={<Consultations/>}/>
         <Route path='/home/statistics' element={<Statistics/>}/>
+
       </Routes>
     </div>
   );
