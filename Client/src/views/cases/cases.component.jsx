@@ -1,29 +1,23 @@
 import './cases.module.css';
 import React from 'react';
+import Filtros from '../../components/filtros';
+import Order from '../../components/order';
+import { Link } from 'react-router-dom';
+
 
 function Cases() {
   return (
     <div>
       <div>
         <p>Casos</p>
-        <select>
-          <option>Casos por cliente</option>
-        </select>
-        <select>
-        <option>Casos por cotización</option>
-        </select>
-        <select>
-        <option>Casos por abogado</option>
-        </select>
-        <select>
-        <option>Casos por estado</option>
-        </select>
-        <select>
-        <option>Casos por tipo</option>
-        </select>
-        <button>Todos los casos</button>
+        <Order></Order>
+       <Filtros></Filtros>
       </div>
+      <Link to='/home'>
+          <button >Volver</button>
+          </Link>
     </div>
+    
   )
 }
 
