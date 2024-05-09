@@ -1,14 +1,21 @@
-import { useState} from "react";
+import { useEffect, useState} from "react";
 // import { validar } from "../../utils/validacion";
 import "../../App.css";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import { useDispatch, useSelector } from "react-redux";
+import { setAuth, setUserToken } from "../../redux/actions";
+import axios from "axios";
+
 
 
 import { GoogleLogin } from "@react-oauth/google";
 // import { useDispatch } from "react-redux";
 // import { setAuth } from "../../redux/actions";
 import { Loginf } from "../../handlers/login";
+import { ClickHandlerCrear, ClickHandlerRecordatorio, Loginf } from "../../handlers/login";
+
 
 const Login = ({ClickHandlerCrear, ClickHandlerRecordatorio}) => {
   const [userData, setUserData] = useState({
@@ -21,10 +28,12 @@ const Login = ({ClickHandlerCrear, ClickHandlerRecordatorio}) => {
     password: "",
   });
 
-  // const dispatch = useDispatch();
+  const [profile, setProfile] = useState([]);
 
-  // const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+const userToken = useSelector((state) => state.userToken);
   const handleChange = (e) => {
     // setErrores(validar({ ...userData, [e.target.name]: e.target.value }));
 
@@ -38,12 +47,12 @@ const Login = ({ClickHandlerCrear, ClickHandlerRecordatorio}) => {
     e.preventDefault();
     Loginf(userData);
   };
-const navigate = useNavigate();
+
   const responseMessage = (response) => {
-    // dispatch(setAuth(true));
+    dispatch(setAuth(true));
 
     // Loginf();
-    
+    dispatch(setUserToken(response.credential));
     navigate("/home");
     console.log(response);
   };
@@ -51,6 +60,25 @@ const navigate = useNavigate();
     console.log(error);
   };
 
+      useEffect(() => {
+        if (userToken) {
+          axios
+            .get(
+              `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${userToken}`,
+              {
+                headers: {
+                  Authorization: `Bearer ${userToken}`,
+                  Accept: "application/json",
+                },
+              }
+            )
+            .then((res) => {
+              setProfile(res.data);
+            })
+            .catch((err) => console.log(err));
+        }
+      }, [userToken]);
+  
   return (
     <div className="containerLogin">
         <form onSubmit={submitHandler}>
