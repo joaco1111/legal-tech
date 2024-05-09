@@ -17,81 +17,62 @@ function App() {
   
   return (
     <div className="App">
-      {location.pathname === "/home" ? (
+      {/* {location.pathname === "/home" ? (
         <div className="">
           <h1 className="titulo">PROYECTO FINAL</h1>
         </div>
-      ) : undefined}
+      ) : undefined} */}
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Landing />} />
+
         <Route
-          path="/crearusuario"
-          element={<CrearUsuario crearUsuario={crearUsuario} />}
-        />
-        <Route
-          path="/recordatoriocontrasena"
-          element={<RecordatorioContrasena />}
-        />
-        <Route
-          path="/collaboration"
-          element={isAuthenticated ? <Collaboration /> : <Login />}
+          path="/password"
+          element={<Password />}
         />
         <Route
           path="/generarfactura"
           element={isAuthenticated ? <GenerarFactura /> : <Login />}
         />
         <Route
-          path="/cotizacion"
-          element={isAuthenticated ? <Cotizacion /> : <Login />}
+          path="/invoice"
+          element={isAuthenticated ? <Invoice /> : <Login />}
         />
         <Route
-          path="/autorizacion"
-          element={isAuthenticated ? <Autorizacion /> : <Login />}
+          path="/authorization"
+          element={isAuthenticated ? <Authorization /> : <Login />}
         />
         <Route
           path="/poder"
           element={isAuthenticated ? <Poder /> : <Login />}
         />
         <Route
-          path="/insolvencia"
-          element={isAuthenticated ? <Insolvencia /> : <Login />}
+          path="/bankruptcy"
+          element={isAuthenticated ? <Bankruptcy /> : <Login />}
         />
         <Route
-          path="/registrocliente"
-          element={isAuthenticated ? <RegistroCliente /> : <Login />}
+          path="home/clientregister"
+          element={isAuthenticated ? <Client /> : <Login />}
         />
         <Route
-          path="/detail"
-          element={isAuthenticated ? <Detail /> : <Login />}
+          path="home/reminders"
+          element={isAuthenticated ? <ConfigReminders/> : <Login />}
         />
+
         <Route
-          path="/previsualizarcontrato"
-          element={isAuthenticated ? <PrevisualizarContrato /> : <Login />}
+          path="home/contract"
+          element={isAuthenticated ? <Contract /> : <Login />}
         />
-        <Route
-          path="/configurarrecordatorios"
-          element={isAuthenticated ? <ConfigurarRecordatorios /> : <Login />}
-        />
-        <Route
-          path="/agendarcitas"
-          element={isAuthenticated ? <AgendarCitas /> : <Login />}
-        />
-        <Route
-          path="/contrato"
-          element={isAuthenticated ? <Contrato /> : <Login />}
-        />
-        <Route
-          path="/documentoslegales"
-          element={isAuthenticated ? <DocumentosLegales /> : <Login />}
-        />
-        <Route
-          path="/litigoiosporcliente"
-          element={isAuthenticated ? <LitigiosPorCliente /> : <Login />}
-        />
-        <Route
-          path="/conocimientodelitigios"
-          element={isAuthenticated ? <ConocimientoDeLitigios /> : <Login />}
-        />
+        
+        <Route path="/home" element={<Home />} />
+        <Route path="/home/detail" element={isAuthenticated ? <Detail /> : <Login />} />
+        <Route path="/home/cases/:id" element={isAuthenticated ? <Cases /> : <Login />} />
+        <Route path="/home/costumers/:id" element={isAuthenticated ? <Costumers />: <Login />}/>
+        <Route path="/home/lawyers/:id" element={isAuthenticated ?<Lawyers />: <Login />} />
+        <Route path="/home/documents/:id" element={isAuthenticated ? <Documents />: <Login />}/>
+        <Route path="/home/diary" element={isAuthenticated ?<Diary />: <Login />}/>
+        <Route path="/home/payments" element={isAuthenticated ?<Payments />:<Login />}/>
+        <Route path="/home/consult" element={isAuthenticated ?<Consult />:<Login />}/>
+        <Route path="/home/statistics" element={isAuthenticated ?<Statistics />:<Login />}/>
       </Routes>
     </div>
   );
