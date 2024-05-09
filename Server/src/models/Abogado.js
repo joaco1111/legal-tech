@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   sequelize.define("Abogado",{
-    cedulaAbodado:{
+    cedulaAbogado:{
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false 

@@ -15,20 +15,20 @@ const getAbogadosHandler = async (req, res)=>{
 // Creando Abogados
 const postAbogadosHandler = async (req, res)=>{
     const { 
-        id, 
+        cedulaAbogado, 
         matricula, 
         nombre, 
         apellido, 
         correo, 
         telefono, 
         calle, numero, 
-        codigo_postal, 
+        codigoPostal, 
         ciudad, 
         pais 
     } = req.body;
 
     try {
-        const response = await createAbogadoBd(id, matricula, nombre, apellido, correo, telefono, calle, numero, codigo_postal, ciudad, pais);
+        const response = await createAbogadoBd(cedulaAbogado, matricula, nombre, apellido, correo, telefono, calle, numero, codigoPostal, ciudad, pais);
         res.status(200).json(response);
     } catch (error) {
         res.status(400).json({error: error.message});
