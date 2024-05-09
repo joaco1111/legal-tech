@@ -1,23 +1,17 @@
 import { useEffect, useState} from "react";
 // import { validar } from "../../utils/validacion";
-import "../../App.css";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuth, setUserToken } from "../../redux/actions";
 import axios from "axios";
-
-
-
-import { GoogleLogin } from "@react-oauth/google";
 // import { useDispatch } from "react-redux";
 // import { setAuth } from "../../redux/actions";
-import { Loginf } from "../../handlers/login";
-import { ClickHandlerCrear, ClickHandlerRecordatorio, Loginf } from "../../handlers/login";
+// import { ClickHandlerCrear, ClickHandlerRecordatorio, Loginf } from "../../handlers/login";
 
 
-const Login = ({ClickHandlerCrear, ClickHandlerRecordatorio}) => {
+const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
   const [userData, setUserData] = useState({
     cedula: "",
     password: "",
@@ -33,7 +27,7 @@ const Login = ({ClickHandlerCrear, ClickHandlerRecordatorio}) => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-const userToken = useSelector((state) => state.userToken);
+  const userToken = useSelector((state) => state.userToken);
   const handleChange = (e) => {
     // setErrores(validar({ ...userData, [e.target.name]: e.target.value }));
 
@@ -60,46 +54,79 @@ const userToken = useSelector((state) => state.userToken);
     console.log(error);
   };
 
-      useEffect(() => {
-        if (userToken) {
-          axios
-            .get(
-              `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${userToken}`,
-              {
-                headers: {
-                  Authorization: `Bearer ${userToken}`,
-                  Accept: "application/json",
-                },
-              }
-            )
-            .then((res) => {
-              setProfile(res.data);
-            })
-            .catch((err) => console.log(err));
-        }
-      }, [userToken]);
-  
+  useEffect(() => {
+    if (userToken) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${userToken}`,
+          {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          setProfile(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [userToken]);
+
   return (
     <div className="containerLogin">
-        <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler}>
+        <table>
+          <tr>
+            <td></td>
+            <td colSpan={2} className="celdas">
+              {/* <img
+                src={logo}
+                alt="Logo Legaltech"
+                style={{ height: "90px", width: "100%" }}
+              /> */}
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
               <label htmlFor="usuario" className="label">
                 Usuario:
               </label>
-
+            </td>
+            <td>
               <input
-                type="text"
+                type="number"
                 name="cedula"
                 id="username"
+                //className="cajausuario"
                 placeholder="Ingrese su Usuario"
                 value={userData.cedula}
                 onChange={handleChange}
               />
-              {/* {errores.cedula !== "" && (
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colSpan={4}>
+              {errores.cedula !== "" && (
                 <h5 className="errores">{errores.cedula}</h5>
-              )} */}
+              )}
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
               <label className="label" htmlFor="password">
                 Contraseña:
               </label>
+            </td>
+            <td>
               <input
                 name="password"
                 type="password"
@@ -107,43 +134,91 @@ const userToken = useSelector((state) => state.userToken);
                 value={userData.password}
                 onChange={handleChange}
               />
-             {/* {errores.password !== "" && (
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colSpan={4}>
+              {errores.password !== "" && (
                 <h5 className="errores">{errores.password}</h5>
-        )} */}
-        <br />
-             <label htmlFor="tipodeusuario">Tipo de usuario:</label>
-
+              )}
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <label htmlFor="tipodeusuario">Tipo de usuario:</label>
+            </td>
+            <td>
               <select name="tipodeusuario" id="idusuario">
                 <option value="">Elija una opcion</option>
                 <option value="1">Administrador</option>
-                <option value="2">Cliente</option>
+                <option value="2">Abogado</option>
+                <option value="3">Cliente</option>
               </select>
-              <br />
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <br></br>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td className="celdas"></td>
+            <td className="celdas">
               <input
                 type="button"
                 name="cancelar"
                 value="Cancelar"
                 className="botonesiniciosesion"
               />
-              {/* {errores.cedula || errores.password ? null : ( */}
+            </td>
+            <td className="celdas">
+              {" "}
+              {errores.cedula || errores.password ? null : (
                 <input
                   type="submit"
                   value="Ingresar"
                   className="botonesiniciosesion"
                 />
-        {/* // )} */}
-        <br />
-              <Link to={"/crearusuario"} onClick={ClickHandlerCrear}>
+              )}
+            </td>
+            <td className="celdas"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td className="celdas">
+              {/* <Link to={"/crearusuario"} onClick={clickHandlerCrear}>
                 <button className="botonesiniciosesion">Crear Usuario</button>
-              </Link>
-              <Link
-                to={"/recordatoriocontrasena"}
-                onClick={ClickHandlerRecordatorio}
-              >
-                <button className="botonesiniciosesion">
-                  ¿Olvidó su contraseña?
-                </button>
-              </Link>
+              </Link> */}
+              <input
+                type="button"
+                name="crearusuario"
+                value="Crear Usuario"
+                className="botonesiniciosesion"
+                onClick={clickHandlerCrear}
+              />
+            </td>
+            <td className="celdas">
+              <input
+                type="button"
+                name="password"
+                value="¿Olvidó su contraseña?"
+                className="botonesiniciosesion"
+                onClick={clickHandlerRecordatorio}
+              />
+              {/* </Link> */}
+            </td>
+            <td></td>
+          </tr>
+        </table>
       </form>
       <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
     </div>

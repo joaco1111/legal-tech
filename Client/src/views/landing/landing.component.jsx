@@ -18,7 +18,7 @@ const ClickHandlerCrear = (e) => {
  const ClickHandlerRecordatorio = (e) => {
   
  e.preventDefault();
- navigate("/recordatoriocontrasena");
+ navigate("/password");
 };
   return (
     <div>
