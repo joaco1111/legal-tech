@@ -1,11 +1,20 @@
-
 //Importar modulos necesarios
-import { useNavigate } from "react-router-dom";
+import Landing from './views/landing/landing.component'
+import Home from './views/home/home.component';
+import Detail from './views/detail/detail.component';
+import Cases from './views/cases/cases.component';
+import Costumers from './views/costumers/costumers.component';
+import Lawyers from './views/lawyers/lawyers.components';
+import Documents from './views/documents/documents.component';
+import Diary from './views/diary/diary.components';
+import Payments from './views/payments/payments.component';
+import Consultations from './views/consultations/consultations.component';
+import Statistics from './views/statistics/statistics.component';
+import CreateUser from './views/createUser/createUser.component'
+import Password from './views/password/password.component';
 import "./App.css";
 import { Routes, Route, useLocation} from "react-router-dom";
-import Login from './components/login';
-import { Loginf, ClickHandlerCrear, ClickHandlerRecordatorio } from "./handlers/login";
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 function App() {
   
@@ -19,7 +28,7 @@ function App() {
     <div className="App">
       {/* {location.pathname === "/home" ? (
         <div className="">
-          <h1 className="titulo">PROYECTO FINAL</h1>
+          <h1 className="titulo">LEGAL TECH</h1>
         </div>
       ) : undefined} */}
       <Routes>
