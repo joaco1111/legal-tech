@@ -1,8 +1,8 @@
 const { Abogado } = require('../db')
 
-const getAbogadoById = async (id)=>{
-    // console.log(id)
-    const abogado = await Abogado.findByPk(id.toUpperCase());
+const getAbogadoById = async (cedulaAbogado)=>{
+    console.log(cedulaAbogado)
+    const abogado = await Abogado.findByPk(cedulaAbogado);
     if(!abogado) throw Error("Abogado no Registrado o no existe")
     return abogado;
 }

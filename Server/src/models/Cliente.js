@@ -34,7 +34,6 @@ module.exports = (sequelize) => {
       },
       calle:{
         type: DataTypes.STRING,
-        unique: true,
         validate:{
           len: [1,20]
         }
@@ -60,6 +59,10 @@ module.exports = (sequelize) => {
         validate:{
           len: [1,20]
         }
+      },
+      activo:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
       }
     })
   }

@@ -5,7 +5,7 @@ const abogadosRouter = Router();
 
 abogadosRouter.get("/", getAbogadosHandler);
 
-abogadosRouter.get("/:id", getAbogadoDetailHandler);
+abogadosRouter.get("/cedulaAbogado", getAbogadoDetailHandler);
 
 abogadosRouter.post("/", postAbogadosHandler);
 

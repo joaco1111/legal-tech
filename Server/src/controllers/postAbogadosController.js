@@ -3,8 +3,8 @@ const { Abogado } = require("../db");
 const createAbogadoBd = async (cedulaAbogado, matricula, nombre, apellido, correo, telefono, calle, numero,codigoPostal, ciudad, pais) => {
     // console.log('imagen',imagen)
     
-    console.log(cedulaAbogado)
     const newAbogado = await Abogado.create({cedulaAbogado, matricula, nombre, apellido, correo, telefono, calle, numero, codigoPostal, ciudad, pais})
+
     //  newAbogado.addCliente(clientes);
    
     return newAbogado

@@ -37,10 +37,9 @@ const postAbogadosHandler = async (req, res)=>{
 };
 
 const getAbogadoDetailHandler = async (req, res)=>{
-    const {id} = req.params;
-    
+    const {cedulaAbogado} = req.query;
     try {
-        const response = await getAbogadoById(id);
+        const response = await getAbogadoById(cedulaAbogado);
         res.status(200).json(response);
     
     } catch (error) {

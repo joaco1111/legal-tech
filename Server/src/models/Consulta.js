@@ -33,6 +33,10 @@ module.exports = (sequelize) =>{
             validate:{
                 len: [1,200]
             }
+        },
+        activo:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
         }
     })
 }
