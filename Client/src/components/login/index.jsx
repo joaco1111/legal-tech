@@ -9,9 +9,15 @@ import { setAuth, setUserToken } from "../../redux/actions";
 import axios from "axios";
 
 
+
+import { GoogleLogin } from "@react-oauth/google";
+// import { useDispatch } from "react-redux";
+// import { setAuth } from "../../redux/actions";
+import { Loginf } from "../../handlers/login";
 import { ClickHandlerCrear, ClickHandlerRecordatorio, Loginf } from "../../handlers/login";
 
-const Login = () => {
+
+const Login = ({ClickHandlerCrear, ClickHandlerRecordatorio}) => {
   const [userData, setUserData] = useState({
     cedula: "",
     password: "",
