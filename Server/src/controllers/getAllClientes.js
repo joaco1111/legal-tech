@@ -1,15 +1,16 @@
-const { Cliente } = require('../db')
+const { Cliente } = require('../DB');
 
-const getAllClientes = async () =>{
-    const cliente = await Cliente.findAll({
-        where:{
-            activo: true
-        }
-    })
-    if(!cliente) throw new Error('Clientes no resgistrado o no existe')
-    return cliente
-}
+const getAllCliente = async(offset,porPagina)=>{
+   
+   
+         const allClient=await Cliente.findAll({
+            limit: porPagina,
+            offset: offset,
+         });
+         return (allClient)
+   
+ }
 
 module.exports = {
-    getAllClientes
+    getAllCliente
 }

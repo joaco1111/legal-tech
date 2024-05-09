@@ -1,12 +1,32 @@
+// const { Router } = require("express");
+// const { getClientesHandler, postClienteHandler } = require('../handlers/clientesHandlers')
+
+// const clientesRoutes = Router();
+
+// clientesRoutes.get("/",getClientesHandler );
+
+// // clientesRoutes.get("/cedulaCliente", );
+
+// clientesRoutes.post("/",postClienteHandler );
+
+// module.exports = clientesRoutes;
+
 const { Router } = require("express");
-const { getClientesHandler, postClienteHandler } = require('../handlers/clientesHandlers')
+const { clientesDetailHandler, clientesHandler, postClientesHandler, postEliminaClientes,postActualizaClientes } = require("../handlers/clientesHandlers");
 
-const clientesRoutes = Router();
+const clientesRouter = Router();
 
-clientesRoutes.get("/",getClientesHandler );
 
-// clientesRoutes.get("/cedulaCliente", );
+clientesRouter.get("/", clientesHandler);
 
-clientesRoutes.post("/",postClienteHandler );
+clientesRouter.get("/:id", clientesDetailHandler);
 
-module.exports = clientesRoutes;
+clientesRouter.post("/", postClientesHandler);
+
+clientesRouter.post("/elimina", postEliminaClientes);
+
+clientesRouter.post("/actualiza", postActualizaClientes);
+
+
+
+module.exports = clientesRouter;

@@ -1,4 +1,4 @@
-const { Abogado } = require('../db')
+const { Abogado } = require('../DB')
 
 const getAllAbogados = async ()=>{
     const getAllAbogadosBd = await Abogado.findAll();
