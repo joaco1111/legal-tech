@@ -27,11 +27,11 @@ const clientesHandler = async (req, res)=>{
 };
 
 const clientesDetailHandler = async (req, res)=>{
-    const {cedula_cliente} = req.params;
+    const {cedulaCliente} = req.params;
     // res.status(200).send(`Detalle del Usuario ${id}`); //? esto fue de solo prueba de inicio 42:57
     
 try {
-    const response = await getClienteById(cedula_cliente);
+    const response = await getClienteById(cedulaCliente);
     res.status(200).json(response);
    
 } catch (error) {

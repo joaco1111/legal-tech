@@ -48,9 +48,12 @@ TipoNotificacion.belongsToMany(DocumentoLegal,{through: DocumentoLegalTipoNotifi
 DocumentoLegal.belongsTo(DocumentoTemplate)
 DocumentoLegal.belongsTo(Caso)
 
-Caso.belongsTo(Abogado)
-Caso.belongsTo(TipoDeCaso)
-Caso.belongsTo(Cliente)
+//Caso.belongsTo(Abogado)
+Cliente.hasMany(Caso)
+//Caso.belongsTo(TipoDeCaso)
+TipoDeCaso.hasMany(Caso)
+//Caso.belongsTo(Cliente)
+Cliente.hasMany(Caso)
 Caso.hasOne(Cotizacion)
 
 Cotizacion.belongsTo(Caso)

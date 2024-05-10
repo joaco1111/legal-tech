@@ -1,8 +1,8 @@
 const { Cliente} = require('../DB')
 
-const getClienteById = async (cedula_cliente)=>{
+const getClienteById = async (cedulaCliente)=>{
     // console.log(id)
-    const cliente = await Cliente.findByPk(parseInt(cedula_cliente), {
+    const cliente = await Cliente.findByPk(parseInt(cedulaCliente), {
         // include: {
         //     model: Abogado, 
         //     attributes: ["nombre", "dificultad", "duracion", "temporada", "imagen"],
