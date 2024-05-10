@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import './createUser.module.css';
+import { Link } from 'react-router-dom';
+import './createUser.css';
+
 
 function CreateUser ({crearUsuario}) {
   
@@ -29,9 +31,12 @@ function CreateUser ({crearUsuario}) {
     };
   
     return (
+
       <div className="contenedorcrearusuario">
+        
         <form method="post" className="formulario" onSubmit={submitHandlerCrear}>
-          <h1 className="titulo">Crear Usuario</h1>
+        <h1 className="titulo">Crear Usuario</h1>
+
           <br />
           <br />
           <div className="nombreapellido">
@@ -173,15 +178,17 @@ function CreateUser ({crearUsuario}) {
               type="submit"
               name="guardar"
               value="Guardar"
-              className="botones"
+              className="button"
               disabled={!userDataCrear.email || !userDataCrear.password}
             />
-            <input
+            
+            <Link to ='/'><input
               type="button"
-              name="cancelar"
-              value="Cancelar"
-              className="botones"
+              name="Volver"
+              value="volver"
+              className="button"
             />
+            </Link>
           </div>
           <br />
         </form>
