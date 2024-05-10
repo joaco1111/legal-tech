@@ -1,16 +1,15 @@
 const { Cliente} = require('../DB')
 
 const getClienteById = async (cedulaCliente)=>{
-    // console.log(id)
-    const cliente = await Cliente.findByPk(parseInt(cedulaCliente), {
-        // include: {
-        //     model: Abogado, 
-        //     attributes: ["nombre", "dificultad", "duracion", "temporada", "imagen"],
-        //     through:{
-        //         attributes: [],
-        //     },
-        // },
-    });
+
+    const consulta= {
+        where: {
+            cedulaCliente:parseInt(cedulaCliente),
+            activo:true,
+        }
+    }
+    
+    const cliente = await Cliente.findOne(consulta);
     if(!cliente) throw Error("Cliente no Registrado o no existe")
     return cliente;
 }

@@ -2,6 +2,10 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) =>{
     sequelize.define('Consulta',{
+        id:{
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+        },
         apellido:{
             type: DataTypes.STRING,
             allowNull: false,

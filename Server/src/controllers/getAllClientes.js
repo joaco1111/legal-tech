@@ -1,12 +1,15 @@
 const { Cliente } = require('../DB');
 
 const getAllCliente = async(offset,porPagina)=>{
-   
-   
-         const allClient=await Cliente.findAll({
+        const consulta= {
+            where: {
+                activo: true,
+            },
             limit: porPagina,
             offset: offset,
-         });
+          };
+   
+         const allClient=await Cliente.findAll(consulta);
          return (allClient)
    
  }
