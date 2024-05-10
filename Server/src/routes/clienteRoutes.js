@@ -9,6 +9,6 @@ clientesRoutes.get("/cedulaCliente", getClientByIDHandler );
 
 clientesRoutes.post("/",postClienteHandler );
 
-clientesRoutes.delete("/delete",deleteClienteHandler );
+clientesRoutes.post("/delete",deleteClienteHandler );
 
 module.exports = clientesRoutes;

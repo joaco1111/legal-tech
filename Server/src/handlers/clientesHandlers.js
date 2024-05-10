@@ -33,7 +33,7 @@ const getClientByIDHandler = async (req, res) =>{
 }
 
 const deleteClienteHandler = async (req, res)=>{
-    const { cedulaCliente } = req.query
+    const { cedulaCliente } = req.body
     try {
         const response = await deleteCliente(cedulaCliente)
         res.status(200).json(response)
