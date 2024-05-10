@@ -7,13 +7,13 @@ function Filtros() {
 
   const [mostrarCasos, setMostrarCasos] = useState(false);
 
-  const [filtros, setFiltros] = useState({
+  /*const [filtros, setFiltros] = useState({
     "tipo": "", 
      "cedula_cliente": "", 
      "cedula_abogado": "", 
      "cotización": "",
      "estado": "" 
-  });
+  });*/
 
   const casos = [
     { 
@@ -45,7 +45,8 @@ function Filtros() {
      "estado": "en proceso" 
     }
 ]
-console.log("filtros:", filtros)
+
+/*console.log("filtros:", filtros)
   const casosFiltrados = casos.filter((caso) => {
     const resultado = (
       (filtros.cedula_cliente === "" || caso.cedula_cliente.toString() === filtros.cedula_cliente) &&
@@ -58,7 +59,7 @@ console.log("filtros:", filtros)
     return resultado
   });
 
-  console.log("casos filtrados:", casosFiltrados)
+  console.log("casos filtrados:", casosFiltrados)*/
 
 
 
@@ -67,18 +68,18 @@ console.log("filtros:", filtros)
     setMostrarCasos(true);
   };
 
-  const handleFilterChange = (event) => {
+  /*const handleFilterChange = (event) => {
     const { name, value } = event.target;
     setFiltros({ ...filtros, [name]: value });
     console.log(event)
   };
 
-  console.log(event)
+  console.log(event)*/
 
   return (
     <div>
       <div>
-      <select onChange={handleFilterChange}>
+      <select>
 <option name="">Casos por cliente</option>
 {casos
     .filter((caso, index, self) => self.findIndex(c => c.cedula_cliente === caso.cedula_cliente) === index)
@@ -88,7 +89,7 @@ console.log("filtros:", filtros)
         </option>
     ))}
 </select>
-<select onChange={handleFilterChange}>
+<select>
 <option name="">Casos por cotización</option>
 {casos
     .filter((caso, index, self) => self.findIndex(c => c.cotización === caso.cotización) === index)
@@ -98,7 +99,7 @@ console.log("filtros:", filtros)
         </option>
     ))}
     </select>
-<select onChange={handleFilterChange}>
+<select>
 <option name="">Casos por abogado</option>
 {casos
     .filter((caso, index, self) => self.findIndex(c => c.cedula_abogado === caso.cedula_abogado) === index)
@@ -108,7 +109,8 @@ console.log("filtros:", filtros)
         </option>
     ))}
 </select>
-<select onChange={handleFilterChange}>
+<br></br>
+<select>
 <option name="">Casos por estado</option>
 {casos
     .filter((caso, index, self) => self.findIndex(c => c.estado === caso.estado) === index)
@@ -118,7 +120,7 @@ console.log("filtros:", filtros)
         </option>
     ))}
 </select>
-<select onChange={handleFilterChange}>
+<select>
 <option name="">Casos por tipo</option>
 {casos
     .filter((caso, index, self) => self.findIndex(c => c.tipo === caso.tipo) === index)
@@ -128,9 +130,10 @@ console.log("filtros:", filtros)
         </option>
     ))}
 </select>
+<br></br>
 <button onClick={handleMostrarCasos}>Todos los casos</button>
       </div>
-      {mostrarCasos && <Cards casos={casosFiltrados} />}
+      {mostrarCasos && <Cards casos={handleMostrarCasos} />}
     </div>
   )
 }

@@ -101,10 +101,10 @@ const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
                 type="number"
                 name="cedula"
                 id="username"
-                //className="cajausuario"
                 placeholder="Ingrese su Usuario"
                 value={userData.cedula}
                 onChange={handleChange}
+                className="input"
               />
             </td>
             <td></td>
@@ -133,6 +133,7 @@ const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
                 placeholder="Ingrese su contraseña"
                 value={userData.password}
                 onChange={handleChange}
+                className="input"
               />
             </td>
             <td></td>
@@ -150,10 +151,10 @@ const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
           <tr>
             <td></td>
             <td>
-              <label htmlFor="tipodeusuario">Tipo de usuario:</label>
+              <label htmlFor="tipodeusuario" className="label">Tipo de usuario:</label>
             </td>
             <td>
-              <select name="tipodeusuario" id="idusuario">
+              <select name="tipodeusuario" id="idusuario" className="select">
                 <option value="">Elija una opcion</option>
                 <option value="1">Administrador</option>
                 <option value="2">Abogado</option>
@@ -177,7 +178,7 @@ const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
                 type="button"
                 name="cancelar"
                 value="Cancelar"
-                className="botonesiniciosesion"
+                className="button"
               />
             </td>
             <td className="celdas">
@@ -186,7 +187,7 @@ const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
                 <input
                   type="submit"
                   value="Ingresar"
-                  className="botonesiniciosesion"
+                  className="button"
                 />
               )}
             </td>
@@ -202,7 +203,7 @@ const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
                 type="button"
                 name="crearusuario"
                 value="Crear Usuario"
-                className="botonesiniciosesion"
+                className="button"
                 onClick={clickHandlerCrear}
               />
             </td>
@@ -211,7 +212,7 @@ const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
                 type="button"
                 name="password"
                 value="¿Olvidó su contraseña?"
-                className="botonesiniciosesion"
+                className="button"
                 onClick={clickHandlerRecordatorio}
               />
               {/* </Link> */}
@@ -220,7 +221,9 @@ const Login = ({ clickHandlerRecordatorio, clickHandlerCrear, Loginf }) => {
           </tr>
         </table>
       </form>
-      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+      <div className="googleLogin">
+        <GoogleLogin onSuccess={responseMessage} onError={errorMessage}/>
+      </div>
     </div>
   );
 };
