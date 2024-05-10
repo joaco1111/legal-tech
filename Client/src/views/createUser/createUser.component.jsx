@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './createUser.css';
 
+
 function CreateUser ({crearUsuario}) {
   
     const [userDataCrear, setUserDataCrear] = useState({
@@ -35,6 +36,7 @@ function CreateUser ({crearUsuario}) {
         
         <form method="post" className="formulario" onSubmit={submitHandlerCrear}>
         <h1 className="titulo">Crear Usuario</h1>
+
           <br />
           <br />
           <div className="nombreapellido">
