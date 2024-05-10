@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 function Detail() {
   const usuario =  {}
-
   return (
     <div>
       <div>

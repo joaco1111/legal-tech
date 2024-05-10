@@ -19,6 +19,7 @@ const ClickHandlerCrear = (e) => {
   
  e.preventDefault();
  navigate("/password");
+
 };
   return (
     <div>
