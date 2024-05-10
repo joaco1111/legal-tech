@@ -2,6 +2,10 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) =>{
     sequelize.define('Consulta',{
+        id:{
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+        },
         apellido:{
             type: DataTypes.STRING,
             allowNull: false,
@@ -18,14 +22,12 @@ module.exports = (sequelize) =>{
         },
         correo:{
             type: DataTypes.STRING,
-            unique: true,
-            validate:{
+                validate:{
                 len: [1,50]
             }
         },
         telefono:{
             type: DataTypes.INTEGER,
-            unique: true,
         },
         consulta:{
             type: DataTypes.TEXT,

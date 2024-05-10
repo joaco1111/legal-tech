@@ -67,5 +67,9 @@ module.exports = (sequelize) => {
         len : [1,50]
       }
     }, 
+    activo:{
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    },
   })
 }

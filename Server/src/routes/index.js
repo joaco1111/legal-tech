@@ -1,10 +1,12 @@
 const { Router } = require("express");
 const abogadosRouter = require("./abogadosRoutes");
 const clientesRoutes = require('../routes/clienteRoutes');
+const consultaRouter = require("./consultaRoutes");
 
 const router = Router();
 
 router.use("/abogados", abogadosRouter);
 router.use("/clientes", clientesRoutes);
+router.use("/consultas", consultaRouter);
 
 module.exports = router;
