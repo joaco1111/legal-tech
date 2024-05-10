@@ -13,18 +13,49 @@ function Detail() {
       </div>
       <div key={usuario.cedula}></div>
       <div>
-            <h4>Cedula: {usuario?.cedula}</h4>
-            <h4>Matricula: {usuario?.matricula}</h4>
-            <h4>Nombre: {usuario?.nombre}</h4>
-            <h4>Apellido: {usuario?.apellido}</h4>
-            <h4>Correo: {usuario?.correo}</h4>
-            <h4>Telefono: {usuario?.telefono}</h4>
-            <h4>Direccion:</h4>
-            <h4>Número: {usuario?.numero}</h4>
-            <h4>Código Postal: {usuario?.codigo_postal}</h4>
-            <h4>Ciudad: {usuario?.ciudad}</h4>
-            <h4>Pais: {usuario?.pais}</h4>
+        <div>
+            <label>Cedula:</label>
+            <input value={usuario?.cedula}></input>
+            <label>Matricula:</label>
+            <input value={usuario?.matricula}></input>
+        </div> 
+        <br></br>
+        <div>   
+            <label>Nombre:</label>
+            <input value={usuario?.nombre}></input>
+            <label>Apellido:</label>
+            <input value= {usuario?.apellido}></input>
+        </div> 
+        <br></br>
+        <div>
+            <label>Correo:</label>
+            <input value={usuario?.correo}></input>
+            <label>Telefono:</label>
+            <input value={usuario?.telefono}></input>
+        </div>
+        <br></br>
+        <div>
+            <label>Domicilio:</label>
+            <input value={usuario?.domicilio}></input>
+            <label>Número:</label>
+            <input value={usuario?.numero}></input>
+        </div>  
+        <br></br> 
+        <div>
+            <label>Código Postal:</label>
+            <input value={usuario?.codigo_postal}></input>
+            <label>Ciudad:</label>
+            <input value={usuario?.ciudad}></input>
+        </div>
+        <br></br>
+        <div>
+            <label>Pais:</label>
+            <input value={usuario?.pais}></input>
+            </div>  
+            <br></br>
           </div>
+          <button>Guardar cambios
+          </button>
           <Link to='/home'>
           <button >Volver</button>
           </Link>
