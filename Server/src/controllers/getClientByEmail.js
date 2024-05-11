@@ -1,15 +1,14 @@
 const { Cliente } = require("../db_conn");
 
-const getClientById = async (cedulaCliente) => {
+const getClientByEmail = async (correo) => {
   const cliente = await Cliente.findOne({
     where: {
-      cedulaCliente,
-      activo: true,
+      correo,
     },
   });
   return cliente;
 };
 
 module.exports = {
-  getClientById,
+  getClientByEmail,
 };
