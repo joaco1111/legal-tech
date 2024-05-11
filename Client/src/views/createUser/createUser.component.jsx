@@ -70,11 +70,7 @@ function CreateUser ({crearUsuario}) {
           </div>
         )}
         </div>
-
-        
-        
         <form method="post" className="formulario" onSubmit={submitHandlerCrear}>
-        
 
           <br />
           <br />
