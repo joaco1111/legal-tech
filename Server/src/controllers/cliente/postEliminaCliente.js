@@ -1,4 +1,4 @@
-const { Cliente } = require("../DB");
+const { Cliente } = require("../../DB");
 
 const eliminaCliente = async (cedulaCliente) => {
     // console.log('imagen',imagen)

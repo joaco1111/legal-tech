@@ -1,5 +1,5 @@
 
-const { Cliente } = require('../db_conn');
+const { Cliente } = require('../../DB');
 
 const getAllCliente = async(offset,porPagina)=>{
         const consulta= {

@@ -1,5 +1,5 @@
 
-const { Abogado } = require("../db_conn");
+const { Abogado } = require("../DB");
 
 const createAbogadoBd = async (
   cedulaAbogado,

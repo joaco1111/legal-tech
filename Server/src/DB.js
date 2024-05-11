@@ -37,7 +37,8 @@ const { Caso,
         DocumentoTemplate, 
         DocumentoLegal, 
         TipoNotificacion, 
-        DocumentoLegalTipoNotificacion 
+        DocumentoLegalTipoNotificacion,
+        Usuario 
       } = sequelize.models;
 
 TipoDeCaso.belongsToMany(DocumentoTemplate, { through: 'TipoDeCasoDocumentoTemplate' })
@@ -61,6 +62,10 @@ Cotizacion.belongsTo(Caso)
 Cotizacion.hasOne(Contrato)
 Contrato.belongsTo(Cotizacion)
 Consulta.belongsTo(Cliente)
+
+Cliente.belongsTo(Usuario);
+Abogado.belongsTo(Usuario)
+
 
 module.exports = {
   ...sequelize.models,

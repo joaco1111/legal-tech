@@ -1,5 +1,5 @@
 
-const { Cliente } = require('../db_conn')
+const { Cliente } = require('../../DB')
 
 const createClienteBd = async (
   cedulaCliente,
