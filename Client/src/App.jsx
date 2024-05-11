@@ -36,7 +36,7 @@ function App() {
         </div>
       ) : undefined} */}
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Landing />}
 
         <Route path="/password" element={<Password />} />
         <Route path="/crearusuario" element={<CreateUser />} />
@@ -73,7 +73,6 @@ function App() {
           path="home/contract"
           element={isAuthenticated ? <Contract /> : <Landing />}
         /> */}
-
         <Route path="/home" element={<Home />} />
         <Route
           path="/home/detail"
@@ -104,6 +103,7 @@ function App() {
           element={isAuthenticated ? <Payments /> : <Landing />}
         />
         <Route
+
           path="/home/consultations"
           element={isAuthenticated ? <Consultations /> : <Landing />}
         />

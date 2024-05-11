@@ -1,5 +1,4 @@
 import './calendar.css';
-
 import { Calendar, dayjsLocalizer } from 'react-big-calendar';
 import dayjs from 'dayjs';
 import "react-big-calendar/lib/css/react-big-calendar.css";
