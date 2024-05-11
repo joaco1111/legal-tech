@@ -1,3 +1,4 @@
+
 const { Abogado } = require("../db_conn");
 
 const createAbogadoBd = async (
