@@ -43,11 +43,14 @@ function Consultations() {
           <button type="submit">Enviar Consulta</button>
         </form>
       </div>
+
       <Link to="/home">
           <button>Volver</button>
         </Link>
+
     </div>
   );
 }
 
 export default Consultations;
+

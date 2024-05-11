@@ -4,7 +4,7 @@ import { SET_AUTHENTICATED, SET_USERTOKEN } from "./actions";
 let initialState = {
   usuario: {},
   isAuthenticated: false,
-  userToken:"",
+  user:{},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -78,7 +78,7 @@ const rootReducer = (state = initialState, action) => {
     case SET_USERTOKEN:
       return {
         ...state,
-        userToken: action.payload,
+        user: action.payload,
       };
     default:
       return state;

@@ -16,6 +16,11 @@ import CrearCliente from './views/crearCliente/crearCliente.component';
 import CrearAbogado from './views/crearAbogado/crearAbogado.component';
 import "./App.css";
 import { Routes, Route, useLocation} from "react-router-dom";
+import { useSelector } from 'react-redux';
+import axios from "axios";
+
+//const { URL } = process.env;
+// axios.defaults.baseURL = "https://localhost:3001";
 
 function App() {
   
@@ -27,34 +32,94 @@ function App() {
   
   return (
     <div className="App">
-      {location.pathname === "/home" ? (
+      {/* {location.pathname === "/home" ? (
         <div className="">
           <h1 className="titulo">LEGAL TECH</h1>
         </div>
-      ) : undefined}
+      ) : undefined} */}
       <Routes>
+        <Route path="/" element={<Landing />}
 
-        <Route path="/" element={<Landing/>}/>
-        <Route path="/crearusuario" element={<CreateUser/>}/>
-        <Route path="/recordatoriocontrasena" element={<Password/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/home/detail' element={<Detail/>}/>
-        <Route path='/home/detail/:id' element={<Detail/>}/>
-        <Route path='/home/cases/:id' element={<Cases/>}/>
-        <Route path='/home/costumers/:id' element={<Costumers/>}/>
-        <Route path='/home/lawyers/:id' element={<Lawyers/>}/>
-        <Route path='/home/documents/:id' element={<Documents/>}/>
-        <Route path='/home/diary' element={<Diary/>}/>
-        <Route path='/home/payments' element={<Payments/>}/>
-        <Route path='/home/consultation' element={<Consultations/>}/>
-        <Route path='/home/statistics' element={<Statistics/>}/>
-        <Route path='/home/crearabogado' element={<CrearAbogado/>}/>
-        <Route path='/home/crearcliente' element={<CrearCliente/>}/>
+        <Route path="/password" element={<Password />} />
+        <Route path="/crearusuario" element={<CreateUser />} />
+        {/* <Route
+          path="/generarfactura"
+          element={isAuthenticated ? <GenerarFactura /> : <Landing />}
+        />
+        <Route
+          path="/invoice"
+          element={isAuthenticated ? <Invoice /> : <Landing />}
+        />
+        <Route
+          path="/authorization"
+          element={isAuthenticated ? <Authorization /> : <Landing />}
+        />
+        <Route
+          path="/poder"
+          element={isAuthenticated ? <Poder /> : <Landing />}
+        />
+        <Route
+          path="/bankruptcy"
+          element={isAuthenticated ? <Bankruptcy /> : <Landing />}
+        />
+        <Route
+          path="home/clientregister"
+          element={isAuthenticated ? <Client /> : <Landing />}
+        />
+        <Route
+          path="home/reminders"
+          element={isAuthenticated ? <ConfigReminders/> : <Landing />}
+        />
+
+
       
 
+        <Route
+          path="home/contract"
+          element={isAuthenticated ? <Contract /> : <Landing />}
+        /> */}
+        <Route path="/home" element={<Home />} />
+        <Route
+          path="/home/detail"
+          element={isAuthenticated ? <Detail /> : <Landing />}
+        />
+        <Route
+          path="/home/cases/:id"
+          element={isAuthenticated ? <Cases /> : <Landing />}
+        />
+        <Route
+          path="/home/costumers/:id"
+          element={isAuthenticated ? <Costumers /> : <Landing />}
+        />
+        <Route
+          path="/home/lawyers/:id"
+          element={isAuthenticated ? <Lawyers /> : <Landing />}
+        />
+        <Route
+          path="/home/documents/:id"
+          element={isAuthenticated ? <Documents /> : <Landing />}
+        />
+        <Route
+          path="/home/diary"
+          element={isAuthenticated ? <Diary /> : <Landing />}
+        />
+        <Route
+          path="/home/payments"
+          element={isAuthenticated ? <Payments /> : <Landing />}
+        />
+        <Route
+
+
+          path="/home/consultations"
+          element={isAuthenticated ? <Consultations /> : <Landing />}
+        />
+        <Route
+          path="/home/statistics"
+          element={isAuthenticated ? <Statistics /> : <Landing />}
+        />
       </Routes>
     </div>
   );
 }
 
-export default App
+export default App;

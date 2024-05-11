@@ -4,7 +4,6 @@ import Filtros from '../../components/filtros';
 import Order from '../../components/order';
 import { Link } from 'react-router-dom';
 
-
 function Cases() {
   return (
     <div>
@@ -17,7 +16,6 @@ function Cases() {
           <button >Volver</button>
           </Link>
     </div>
-    
   )
 }
 

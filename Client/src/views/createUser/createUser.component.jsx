@@ -1,7 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import axios from 'axios';
+
 import './createUser.css';
 
 
@@ -57,6 +59,7 @@ function CreateUser ({crearUsuario}) {
     return (
 
       <div className="contenedorcrearusuario">
+
         <h1 className="titulo">Crear Usuario</h1>
         <h2>Foto de perfil</h2>
         <div>
@@ -75,6 +78,10 @@ function CreateUser ({crearUsuario}) {
         
         <form method="post" className="formulario" onSubmit={submitHandlerCrear}>
         
+        
+        <form method="post" className="formulario" onSubmit={submitHandlerCrear}>
+        <h1 className="titulo">Crear Usuario</h1>
+
 
           <br />
           <br />

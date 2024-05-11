@@ -16,7 +16,7 @@ function Diary() {
         <FormCita></FormCita>
         <div>
         <Link to='/home'>
-        <button>Volver</button>
+        <button className="button">Volver</button>
         </Link>
         </div>
       </div>
