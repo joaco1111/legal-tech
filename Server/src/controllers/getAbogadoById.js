@@ -1,4 +1,6 @@
-const { Abogado } = require("../db_conn");
+
+const { Abogado } = require("../DB");
+
 
 const getAbogadoById = async (cedulaAbogado) => {
   console.log(cedulaAbogado);
