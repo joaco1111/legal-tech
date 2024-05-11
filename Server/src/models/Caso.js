@@ -13,7 +13,7 @@ module.exports = (sequlize)=>{
         },
         fechaFin:{
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
         descripcion:{
             type: DataTypes.TEXT,
