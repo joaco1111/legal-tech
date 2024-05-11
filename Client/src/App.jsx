@@ -8,13 +8,17 @@ import Lawyers from './views/lawyers/lawyers.components';
 import Documents from './views/documents/documents.component';
 import Diary from './views/diary/diary.components';
 import Payments from './views/payments/payments.component';
-import Consult from './views/consultations/consultations.component';
+import Consultations from './views/consultations/consultations.component';
 import Statistics from './views/statistics/statistics.component';
 import CreateUser from './views/createUser/createUser.component'
 import Password from './views/password/password.component';
 import "./App.css";
 import { Routes, Route, useLocation} from "react-router-dom";
 import { useSelector } from 'react-redux';
+import axios from "axios";
+
+//const { URL } = process.env;
+// axios.defaults.baseURL = "https://localhost:3001";
 
 function App() {
   
@@ -32,7 +36,7 @@ function App() {
         </div>
       ) : undefined} */}
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Landing />}
 
         <Route path="/password" element={<Password />} />
         <Route path="/crearusuario" element={<CreateUser />} />
@@ -69,7 +73,6 @@ function App() {
           path="home/contract"
           element={isAuthenticated ? <Contract /> : <Landing />}
         /> */}
-
         <Route path="/home" element={<Home />} />
         <Route
           path="/home/detail"
@@ -93,15 +96,16 @@ function App() {
         />
         <Route
           path="/home/diary"
-          element={<Diary />}
+          element={isAuthenticated ? <Diary /> : <Landing />}
         />
         <Route
           path="/home/payments"
           element={isAuthenticated ? <Payments /> : <Landing />}
         />
         <Route
-          path="/home/consult"
-          element={isAuthenticated ? <Consult /> : <Landing />}
+
+          path="/home/consultations"
+          element={isAuthenticated ? <Consultations /> : <Landing />}
         />
         <Route
           path="/home/statistics"
@@ -112,4 +116,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
