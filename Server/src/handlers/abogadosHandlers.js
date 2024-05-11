@@ -1,3 +1,4 @@
+const { deleteAbogado } = require("../controllers/deleteAbogado");
 const { getAbogadoById } = require("../controllers/getAbogadoById");
 const { getAllAbogados } = require("../controllers/getAllAbogados");
 const { createAbogadoBd } = require("../controllers/postAbogadosController");
@@ -47,10 +48,22 @@ const getAbogadoDetailHandler = async (req, res)=>{
     }
 }
 
+const deleteAbogadoHandler = async (req, res)=>{
+    const { cedulaAbogado } = req.body
+    try {
+        const response = await deleteAbogado(cedulaAbogado)
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(400).json({error:error.message})
+    }
+}
+
+
 
 module.exports = {
     getAbogadosHandler,
     getAbogadoDetailHandler,
     postAbogadosHandler,
+    deleteAbogadoHandler,
     
 }

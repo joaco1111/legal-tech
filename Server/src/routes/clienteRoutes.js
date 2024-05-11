@@ -1,16 +1,41 @@
+// const { Router } = require("express");
+// const { getClientesHandler, postClienteHandler } = require('../handlers/clientesHandlers')
+
+// const clientesRoutes = Router();
+
+// clientesRoutes.get("/",getClientesHandler );
+
+// // clientesRoutes.get("/cedulaCliente", );
+
+// clientesRoutes.post("/",postClienteHandler );
+
+// module.exports = clientesRoutes;
+
 const { Router } = require("express");
+
+const { clientesDetailHandler, clientesHandler, postClientesHandler, postEliminaClientes,postActualizaClientes } = require("../handlers/clientesHandlers");
+
+const clientesRouter = Router();
+
+
+clientesRouter.get("/", clientesHandler);
+
+clientesRouter.get("/:id", clientesDetailHandler);
+
+clientesRouter.post("/", postClientesHandler);
+
 const { getClientesHandler, postClienteHandler, getClientByIDHandler, deleteClienteHandler, getClientByEmailHandler } = require('../handlers/clientesHandlers')
 
-const clientesRoutes = Router();
 
-clientesRoutes.get("/",getClientesHandler );
+clientesRouter.post("/elimina", postEliminaClientes);
 
-clientesRoutes.get("/cedulaCliente", getClientByIDHandler);
+clientesRouter.post("/actualiza", postActualizaClientes);
 
-clientesRoutes.get("/email", getClientByEmailHandler);
 
-clientesRoutes.post("/",postClienteHandler );
+lientesRoutes.get("/cedulaCliente", getClientByIDHandler);
 
-clientesRoutes.delete("/delete",deleteClienteHandler );
 
-module.exports = clientesRoutes;
+
+
+module.exports = clientesRouter;
+

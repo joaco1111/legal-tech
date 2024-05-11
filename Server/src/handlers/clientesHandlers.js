@@ -1,28 +1,93 @@
-const { getAllClientes } = require('../controllers/getAllClientes')
-const { createClienteBd } = require('../controllers/postClientesController')
-const { getClientById } = require('../controllers/getClientByid')
-const { deleteCliente } = require('../controllers/deleteCliente')
-const { getClientByEmail } = require("../controllers/getClientByEmail");
 
-const getClientesHandler = async (req, res)=>{
+const { getClienteById } = require('../controllers/getClienteById');
+const { getAllCliente } = require('../controllers/getAllClientes');
+const { getClienteByName } = require('../controllers/getClienteByName');
+const {createCliente} = require('../controllers/postClientesControllers');
+const {eliminaCliente} = require('../controllers/postEliminaCliente')
+const {actualizaCliente} = require('../controllers/postActualizaClientes')
+
+
+const clientesHandler = async (req, res)=>{
+    //const { name } = req.query;
+    console.log(req.query)
+    const { pagina=1, porPagina=10 }=req.query
+    const offset=(parseInt(pagina) - 1) * parseInt(porPagina)
+      
     try {
-        const response = await getAllClientes()
-        res.status(200).json(response)
-    } catch (error) {
-        res.status(400).json({error:error.message})
+        
+            const response = await getAllCliente(offset,porPagina)
+            res.status(200).json(response)
+        /*}  else {
+            const countyByName = await getClienteByName(name)
+            res.status(200).json(countyByName);
+        } ;*/
+        } catch (error) {
+            res.status(400).json({error: error.message})
     }
+    
+};
+
+const clientesDetailHandler = async (req, res)=>{
+    const {cedulaCliente} = req.params;
+    // res.status(200).send(`Detalle del Usuario ${id}`); //? esto fue de solo prueba de inicio 42:57
+    
+try {
+    const response = await getClienteById(cedulaCliente);
+    res.status(200).json(response);
+   
+} catch (error) {
+    res.status(400).json(error = error.message)
 }
 
-const postClienteHandler = async (req, res) =>{
-    const { cedulaCliente, nombre, apellido, correo, telefono, calle, numero, codigoPostal, ciudad, pais } = req.body
-    try {
-        const response = await createClienteBd(cedulaCliente, nombre, apellido, correo, telefono, calle, numero, codigoPostal, ciudad, pais)
-        res.status(200).json(response)
-    } catch (error) {
-        res.status(400).json({error:error.message})
-    }
-}
 
+
+};
+
+const postClientesHandler = async (req, res)=>{
+    const { cedulaCliente,nombre,apellido,correo,telefono,calle,numero,codigoPostal,ciudad,pais } = req.body;
+
+    try {
+        const response = await createCliente(cedulaCliente,nombre,apellido,correo,telefono,calle,numero,codigoPostal,ciudad,pais);
+        if (response) res.status(200).json(response);
+            else res.status(200).send('La cedula ya existe')
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
+    // res.status(200).send(`creando actividades`);
+};
+
+const postEliminaClientes = async (req, res)=>{
+    const { cedulaCliente } = req.body;
+
+    try {
+        const response = await eliminaCliente(cedulaCliente);
+        if (response) res.status(200).json('Cliente eliminado');
+            else res.status(204).json('No existe el cliente')
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
+    // res.status(200).send(`creando actividades`);
+};
+
+const postActualizaClientes = async (req, res)=>{
+    const { cedulaCliente,nombre,apellido,correo,telefono,calle,numero,codigoPostal,ciudad,pais } = req.body;
+
+    try {
+        const response = await actualizaCliente(cedulaCliente,nombre,apellido,correo,telefono,calle,numero,codigoPostal,ciudad,pais);
+        if (response) res.status(200).json(response);
+            else res.status(204).json('No se actualizo el cliente')
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
+    // res.status(200).send(`creando actividades`);
+};
+module.exports = {
+    clientesHandler,
+    clientesDetailHandler,
+    postClientesHandler,
+    postEliminaClientes,
+    postActualizaClientes
+}
 const getClientByIDHandler = async (req, res) =>{
     const { cedulaCliente } = req.query
     
@@ -92,4 +157,4 @@ module.exports = {
   deleteClienteHandler,
     getClientByEmailHandler,
   loginHandler,
-};
+}
