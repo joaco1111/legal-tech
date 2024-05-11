@@ -12,6 +12,8 @@ import Consultations from './views/consultations/consultations.component';
 import Statistics from './views/statistics/statistics.component';
 import CreateUser from './views/createUser/createUser.component'
 import Password from './views/password/password.component';
+import CrearCliente from './views/crearCliente/crearCliente.component';
+import CrearAbogado from './views/crearAbogado/crearAbogado.component';
 import "./App.css";
 import { Routes, Route, useLocation} from "react-router-dom";
 import { useSelector } from 'react-redux';
@@ -69,6 +71,9 @@ function App() {
           element={isAuthenticated ? <ConfigReminders/> : <Landing />}
         />
 
+
+      
+
         <Route
           path="home/contract"
           element={isAuthenticated ? <Contract /> : <Landing />}
@@ -103,6 +108,7 @@ function App() {
           element={isAuthenticated ? <Payments /> : <Landing />}
         />
         <Route
+
 
           path="/home/consultations"
           element={isAuthenticated ? <Consultations /> : <Landing />}
