@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Consultations() {
-  
+
   const [nombre, setNombre] = useState('');
   const [apellidos, setApellidos] = useState('');
   const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ function Consultations() {
   // Función para manejar el envío del formulario
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
   };
 
   return (
@@ -42,8 +43,14 @@ function Consultations() {
           <button type="submit">Enviar Consulta</button>
         </form>
       </div>
+
+      <Link to="/home">
+          <button>Volver</button>
+        </Link>
+
     </div>
   );
 }
 
 export default Consultations;
+
