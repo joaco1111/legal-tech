@@ -12,6 +12,8 @@ import Consultations from './views/consultations/consultations.component';
 import Statistics from './views/statistics/statistics.component';
 import CreateUser from './views/createUser/createUser.component'
 import Password from './views/password/password.component';
+import CrearCliente from './views/crearCliente/crearCliente.component';
+import CrearAbogado from './views/crearAbogado/crearAbogado.component';
 import "./App.css";
 import { Routes, Route, useLocation} from "react-router-dom";
 
@@ -46,6 +48,9 @@ function App() {
         <Route path='/home/payments' element={<Payments/>}/>
         <Route path='/home/consultation' element={<Consultations/>}/>
         <Route path='/home/statistics' element={<Statistics/>}/>
+        <Route path='/home/crearabogado' element={<CrearAbogado/>}/>
+        <Route path='/home/crearcliente' element={<CrearCliente/>}/>
+      
 
       </Routes>
     </div>
