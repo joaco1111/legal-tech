@@ -28,7 +28,6 @@ const getAllAbogados = async (filters) => {
 
     if (value) {
       // verifico no sea undefind
-      console.log("Prop, valor", field, value);
       if (field !== "pagina" && field !== "porPagina") {
         if (value === "ord") {
           //verifico que el comando requiera ser ordnado
