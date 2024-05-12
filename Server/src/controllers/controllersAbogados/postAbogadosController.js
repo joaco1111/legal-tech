@@ -1,5 +1,4 @@
-
-const { Abogado } = require("../DB");
+const { Abogado } = require("../../db");
 
 const createAbogadoBd = async (
   cedulaAbogado,
@@ -12,7 +11,7 @@ const createAbogadoBd = async (
   numero,
   codigoPostal,
   ciudad,
-  pais
+  pais,
 ) => {
   // console.log('imagen',imagen)
 
