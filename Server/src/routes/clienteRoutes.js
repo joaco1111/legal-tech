@@ -1,14 +1,29 @@
 const { Router } = require("express");
-const { getClientesHandler, postClienteHandler, getClientByIDHandler, deleteClienteHandler } = require('../handlers/clientesHandlers')
 
-const clientesRoutes = Router();
+const { clientesDetailHandler, clientesHandler, postClientesHandler, postEliminaClientes,postActualizaClientes } = require("../handlers/clientesHandlers");
 
-clientesRoutes.get("/",getClientesHandler );
+const clientesRouter = Router();
 
-clientesRoutes.get("/cedulaCliente", getClientByIDHandler );
 
-clientesRoutes.post("/",postClienteHandler );
+clientesRouter.get("/", clientesHandler);
 
+<<<<<<< HEAD
 clientesRoutes.post("/delete",deleteClienteHandler );
+=======
+clientesRouter.get("/:id", clientesDetailHandler);
 
-module.exports = clientesRoutes;
+clientesRouter.post("/", postClientesHandler);
+
+clientesRouter.post("/elimina", postEliminaClientes);
+
+clientesRouter.post("/actualiza", postActualizaClientes);
+
+
+//clientesRoutes.get("/cedulaCliente", getClientByIDHandler);
+
+
+
+
+module.exports = clientesRouter;
+>>>>>>> develop
+

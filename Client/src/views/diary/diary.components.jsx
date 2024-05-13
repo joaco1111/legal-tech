@@ -1,12 +1,24 @@
 import './diary.module.css';
+import Calendario from '../../components/calendar';
+import FormCita from '../../components/formCrearCita/index';
+import { Link  } from 'react-router-dom';
 import React from 'react';
 
 function Diary() {
+  
+  
+  
   return (
     <div>
       <div>
-        <p>Diary</p>
-          
+        <p>Agenda</p>
+        <Calendario></Calendario>
+        <FormCita></FormCita>
+        <div>
+        <Link to='/home'>
+        <button className="button">Volver</button>
+        </Link>
+        </div>
       </div>
     </div>
   )

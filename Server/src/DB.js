@@ -37,7 +37,8 @@ const { Caso,
         DocumentoTemplate, 
         DocumentoLegal, 
         TipoNotificacion, 
-        DocumentoLegalTipoNotificacion 
+        DocumentoLegalTipoNotificacion,
+        Usuario 
       } = sequelize.models;
 
 TipoDeCaso.belongsToMany(DocumentoTemplate, { through: 'TipoDeCasoDocumentoTemplate' })
@@ -48,15 +49,23 @@ TipoNotificacion.belongsToMany(DocumentoLegal,{through: DocumentoLegalTipoNotifi
 DocumentoLegal.belongsTo(DocumentoTemplate)
 DocumentoLegal.belongsTo(Caso)
 
-Caso.belongsTo(Abogado)
-Caso.belongsTo(TipoDeCaso)
-Caso.belongsTo(Cliente)
+//Caso.belongsTo(Abogado)
+//Cliente.hasMany(Caso)
+//Caso.belongsTo(TipoDeCaso)
+TipoDeCaso.hasMany(Caso, { foreignKey: 'TipoDeCasoId' })
+//Caso.belongsTo(Cliente)
+Cliente.hasMany(Caso, { foreignKey: 'cedulaCliente' })
+Abogado.hasMany(Caso, { foreignKey: 'cedulaAbogado' })
 Caso.hasOne(Cotizacion)
 
 Cotizacion.belongsTo(Caso)
 Cotizacion.hasOne(Contrato)
 Contrato.belongsTo(Cotizacion)
 Consulta.belongsTo(Cliente)
+
+Cliente.belongsTo(Usuario);
+Abogado.belongsTo(Usuario)
+
 
 module.exports = {
   ...sequelize.models,
