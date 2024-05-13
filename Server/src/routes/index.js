@@ -4,6 +4,7 @@ const clientesRoutes = require('../routes/clienteRoutes');
 const consultaRouter = require("./consultaRoutes");
 const tipoDeCasosRouter=require('./tipoDeCasosRoutes')
 const casosRouter=require('./casosRoutes')
+const loginRouter = require('./loginRoute')
 
 const router = Router();
 
@@ -12,5 +13,7 @@ router.use("/clientes", clientesRoutes);
 router.use("/consultas", consultaRouter);
 router.use("/tiposdecasos",tipoDeCasosRouter)
 router.use("/casos",casosRouter)
+router.use("/login",loginRouter)
+
 
 module.exports = router;

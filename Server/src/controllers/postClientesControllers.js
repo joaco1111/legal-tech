@@ -1,7 +1,7 @@
 const { Cliente } = require("../DB");
 
-const createCliente = async (cedulaCliente,nombre,apellido,correo,telefono,calle,numero,codigoPostal,ciudad,pais) => {
-    // console.log('imagen',imagen)
+const createCliente = async (cedulaCliente,nombre,apellido,correo,telefono,calle,numero,codigoPostal,ciudad,pais,password) => {
+    console.log(cedulaCliente)
 
     const [newCliente,creado] = await Cliente.findOrCreate({
         where: {cedulaCliente: cedulaCliente},
@@ -13,7 +13,8 @@ const createCliente = async (cedulaCliente,nombre,apellido,correo,telefono,calle
             numero: numero,
             codigoPostal: codigoPostal,
             ciudad: ciudad,
-            pais: pais}
+            pais: pais,
+            password:password}
     })
    
     if (creado) return newCliente

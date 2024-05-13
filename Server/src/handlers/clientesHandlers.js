@@ -29,17 +29,6 @@ const clientesDetailHandler = async (req, res) => {
   const { cedulaCliente } = req.params;
   // res.status(200).send(`Detalle del Usuario ${id}`); //? esto fue de solo prueba de inicio 42:57
 
-<<<<<<< HEAD
-const deleteClienteHandler = async (req, res)=>{
-    const { cedulaCliente } = req.body
-    try {
-        const response = await deleteCliente(cedulaCliente)
-        res.status(200).json(response)
-    } catch (error) {
-        res.status(400).json({error:error.message})
-    }
-}
-=======
   try {
     const response = await getClienteById(cedulaCliente);
     res.status(200).json(response);
@@ -47,7 +36,6 @@ const deleteClienteHandler = async (req, res)=>{
     res.status(400).json((error = error.message));
   }
 };
->>>>>>> develop
 
 const postClientesHandler = async (req, res) => {
   const {
@@ -61,8 +49,9 @@ const postClientesHandler = async (req, res) => {
     codigoPostal,
     ciudad,
     pais,
+    password
   } = req.body;
-
+  console.log(req.body)
   try {
     const response = await createCliente(
       cedulaCliente,
@@ -75,6 +64,7 @@ const postClientesHandler = async (req, res) => {
       codigoPostal,
       ciudad,
       pais,
+      password
     );
     if (response) res.status(200).json(response);
     else res.status(200).send("La cedula ya existe");

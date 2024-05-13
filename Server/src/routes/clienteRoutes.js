@@ -7,9 +7,6 @@ const clientesRouter = Router();
 
 clientesRouter.get("/", clientesHandler);
 
-<<<<<<< HEAD
-clientesRoutes.post("/delete",deleteClienteHandler );
-=======
 clientesRouter.get("/:id", clientesDetailHandler);
 
 clientesRouter.post("/", postClientesHandler);
@@ -25,5 +22,4 @@ clientesRouter.post("/actualiza", postActualizaClientes);
 
 
 module.exports = clientesRouter;
->>>>>>> develop
 

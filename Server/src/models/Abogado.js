@@ -28,16 +28,10 @@ module.exports = (sequelize) => {
     correo:{
       type: DataTypes.STRING,
       unique: true,
-      validate: {
-        len : [1,50]
-      }
     }, 
     telefono:{
       type: DataTypes.INTEGER,
       unique: true,
-      validate: {
-        len : [1,20]
-      }
     }, 
     calle:{
       type: DataTypes.STRING,
@@ -66,6 +60,10 @@ module.exports = (sequelize) => {
       validate: {
         len : [1,50]
       }
+    },
+    password:{
+      type: DataTypes.STRING,
+      allowNull:false
     },
     activo:{
       type: DataTypes.BOOLEAN,
